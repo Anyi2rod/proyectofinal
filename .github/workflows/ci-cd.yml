@@ -1,4 +1,4 @@
-name: CI/CD Pipeline DevOps
+name: CI/CD DevOps Pipeline
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-test-deploy:
+  build-test-push:
     runs-on: ubuntu-latest
 
     steps:
@@ -37,8 +37,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/hola-mundo-devops:latest
-
-    - name: 🚀 Deploy en Render
-      run: |
-        curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+        tags: anyiro/finalproyect:latest
